@@ -1,0 +1,33 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'teams/style.css' %}">
+
+<h1>Team list </h1>
+<h2>My teams</h2>
+<br>
+<h2>Another teams</h2>
+{% if latest_team_list %}
+    <div class="container">
+    {% for team in latest_team_list %}
+        <div class="card" title="{{ team.shortname }}"> 
+            <div class="imgBx">
+                <img src="{{ team.image.url }}" alt="{{ team.image.url }}">
+            </div>
+            <div class="contentBx">
+                <h2>{{ team.name }}</h2>
+            <div class="size">
+                <h3>Country :</h3>
+                <span>{{ team.country }}</span>
+            </div>
+            <div class="color">
+                <h3>Overall :</h3>
+                <span>{{ team.ovr }}</span>
+            </div>
+            <a href="{% url 'detail' team.id %}">View Players</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>No teams are available.</p>
+{% endif %}

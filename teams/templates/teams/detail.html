@@ -1,0 +1,9 @@
+<h1>{{ team.name }}</h1>
+
+<h4>Players</h4>
+
+<ul>
+{% for player in team.player_set.all %}
+    <li><a href="{% url 'detail_player' team.id player.id %}">{{ player.name }}</a></li>
+{% endfor %}
+</ul>

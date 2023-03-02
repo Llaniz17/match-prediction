@@ -1,0 +1,15 @@
+
+<form action="{% url 'playMatch' %}" method="post">{% csrf_token %}
+    <select name="team1" id="">
+        {% for team in latest_team_list %}
+        <option value="{{team.name}}">{{team.name}}</option>
+        {% endfor %}
+    </select>
+    <select name="team2" id="">
+        {% for team in latest_team_list %}
+        <option value="{{team.name}}">{{team.name}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Play">
+</form>
+
